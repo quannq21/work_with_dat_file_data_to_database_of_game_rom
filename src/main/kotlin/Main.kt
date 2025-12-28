@@ -4,9 +4,9 @@ import java.sql.DriverManager
 import java.net.URLEncoder
 
 // Cấu hình đường dẫn (Hãy sửa lại cho đúng với máy Mac của bạn)
-const val packagePath = "/Users/quan/Downloads/datgamedetail/gbc"
+const val packagePath = "/Users/quan/Downloads/datgamedetail/fcds"
 
-const val dbpath = packagePath + "/gbc_master_metadata.db"
+const val dbpath = packagePath + "/fcds_master_metadata.db"
 
 
 data class GameData(
@@ -42,6 +42,10 @@ fun getLibretroPlatform(): String {
         name.contains("snes") -> "Nintendo_-_Super_Nintendo_Entertainment_System"
         // NES: Nintendo Entertainment System
         name.contains("nes") -> "Nintendo_-_Nintendo_Entertainment_System"
+
+        name.contains("fcds") -> "Nintendo_-_Family_Computer_Disk_System"
+
+        name.contains("satellaview") -> "Nintendo_-_Satellaview"
         else -> "Nintendo_-_Game_Boy_Advance" // Mặc định
     }
 }
@@ -57,6 +61,8 @@ fun getDisplayPlatformCode(libretroName: String): String {
         "Nintendo_-_Game_Boy" -> "GB"
         "Nintendo_-_Super_Nintendo_Entertainment_System" -> "SNES"
         "Nintendo_-_Nintendo_Entertainment_System" -> "NES"
+        "Nintendo_-_Family_Computer_Disk_System" -> "FCDS"
+        "Nintendo_-_Satellaview" -> "SATELLAVIEW"
         else -> "UNKNOWN"
     }
 }
